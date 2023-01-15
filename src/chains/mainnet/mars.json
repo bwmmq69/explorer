@@ -1,7 +1,7 @@
 {
     "chain_name": "MARS",
-    "api": ["https://mars-testnet-api.polkachu.com/","https://api.mars.nodexcapital.com/"],
-    "rpc": ["https://rpc.mars.nodexcapital.com/","https://mars-testnet-rpc.polkachu.com/"],
+    "api": ["https://api-testnet.mars.sxlzptprjkt.xyz/"],
+    "rpc": ["https://rpc-testnet.mars.sxlzptprjkt.xyz/"],
     "snapshot_provider": "",
     "sdk_version": "0.45.6",
     "coin_type": "118",

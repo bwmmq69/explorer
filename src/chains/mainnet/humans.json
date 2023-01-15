@@ -1,7 +1,7 @@
 {
     "chain_name": "humans",
-    "api": ["https://api.humans.nodexcapital.com/"],
-    "rpc": ["https://rpc.humans.nodexcapital.com/"],
+    "api": ["https://api-testnet.humans.sxlzptprjkt.xyz/"],
+    "rpc": ["https://rpc-testnet.humans.sxlzptprjkt.xyz/"],
     "snapshot_provider": "",
     "sdk_version": "0.45.6",
     "coin_type": "118",
