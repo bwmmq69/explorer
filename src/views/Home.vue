@@ -9,7 +9,7 @@
         <h1
           class="text-primary display-4 font-weight-bolder d-none d-md-block"
         >
-          NodeX Capital Explorer<small class="flow-left">Beta</small>
+          sxlzptprjkt EXPLORER<small class="flow-left">Beta</small>
         </h1>
       </div>
     </b-link>
@@ -18,7 +18,7 @@
       Ping Dashboard is not just an explorer but also a wallet and more ... 🛠
     </p> -->
     <h2 class="mb-3">
-      We ❤️ Cosmos Ecosystem
+      The Cosmos Ecosystem #IBCGANG
     </h2>
 
     <div>

@@ -6,7 +6,7 @@
         class="ml-25 font-weight-bolder"
         href="#"
         target="_blank"
-      >https://ping.pub</b-link>
+      >https://www.sxlzptprjkt.xyz</b-link>
     </span>
 
     <router-link
