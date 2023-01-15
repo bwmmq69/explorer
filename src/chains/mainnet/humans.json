@@ -3,7 +3,7 @@
     "api": ["https://api-testnet.humans.sxlzptprjkt.xyz/"],
     "rpc": ["https://rpc-testnet.humans.sxlzptprjkt.xyz/"],
     "snapshot_provider": "",
-    "sdk_version": "0.45.6",
+    "sdk_version": "v1.0.0",
     "coin_type": "118",
     "min_tx_fee": "800",
     "addr_prefix": "humans",
