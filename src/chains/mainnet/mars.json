@@ -1,7 +1,7 @@
 {
-    "chain_name": "MARS",
-    "api": ["https://api-testnet.mars.sxlzptprjkt.xyz/"],
-    "rpc": ["https://rpc-testnet.mars.sxlzptprjkt.xyz/"],
+    "chain_name": "mars",
+    "api": ["https://api-testnet.mars.sxlzptprjkt.xyz", "https://testnet-rest.marsprotocol.io"],
+    "rpc": ["https://rpc-testnet.mars.sxlzptprjkt.xyz", "https://testnet-rpc.marsprotocol.io"],
     "snapshot_provider": "",
     "sdk_version": "v1.0.0-rc7",
     "coin_type": "118",
@@ -13,6 +13,7 @@
         "base": "umars",
         "symbol": "MARS",
         "exponent": "6",
+        "coingecko_id": "",
         "logo": "/logos/mars.png"
       }
     ]
