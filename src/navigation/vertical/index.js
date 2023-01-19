@@ -48,7 +48,7 @@ function processMenu() {
   })
   chainMenus.push({
     title: 'Github',
-    href: 'https://github.com/sxlmnwb/testnet_manuals',
+    href: 'https://github.com/sxlzptprjkt',
     icon: 'GithubIcon',
   })
 
