@@ -25,8 +25,8 @@ function processMenu() {
   chainMenus.push({ header: 'LINKS' })
   if (isTestnet()) {
     chainMenus.push({
-      title: 'sxlztprjkt EXPLORER',
-      href: 'https://explorer.sxlzptprjkt.xyz',
+      title: 'Perfect EXPLORER',
+      href: 'https://explorer.bwmmq.net',
       icon: 'ChromeIcon',
     })
   } else {
