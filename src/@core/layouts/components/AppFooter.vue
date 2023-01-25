@@ -6,7 +6,7 @@
         class="ml-25 font-weight-bolder"
         href="#"
         target="_blank"
-      >https://www.sxlzptprjkt.xyz</b-link>
+      >https://explorer.bwmmq.net</b-link>
     </span>
 
     <router-link
