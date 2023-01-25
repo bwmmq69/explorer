@@ -19,7 +19,7 @@ function processMenu() {
       title: 'blockchains',
       children: blockchains,
       tag: `${blockchains.length}`,
-      icon: 'https://explorer.sxlzptprjkt.xyz/logox.svg',
+      icon: 'https://explorer.bwmmq.net/logox.svg',
     })
   }
   chainMenus.push({ header: 'LINKS' })
@@ -32,13 +32,13 @@ function processMenu() {
   } else {
     chainMenus.push({
       title: 'Website',
-      href: 'https://sxlzptprjkt.xyz',
+      href: 'https://bwmmq.net',
       icon: 'LifeBuoyIcon',
     })
   }
   chainMenus.push({
     title: 'Twitter',
-    href: 'https://twitter.com/sxlzptprjktLLC',
+    href: 'https://twitter.com/snoozledoo',
     icon: 'TwitterIcon',
   })
   chainMenus.push({
@@ -48,7 +48,7 @@ function processMenu() {
   })
   chainMenus.push({
     title: 'Github',
-    href: 'https://github.com/sxlzptprjkt',
+    href: 'https://github.com/bwmmq',
     icon: 'GithubIcon',
   })
 
