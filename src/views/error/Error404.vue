@@ -4,7 +4,7 @@
     <b-link class="brand-logo">
       <vuexy-logo />
       <h2 class="brand-text text-primary ml-1">
-        sxlzptprjkt EXPLORER
+        Perfect EXPLORER
       </h2>
     </b-link>
 
