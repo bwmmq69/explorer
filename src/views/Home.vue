@@ -9,7 +9,7 @@
         <h1
           class="text-primary display-4 font-weight-bolder d-none d-md-block"
         >
-          sxlzptprjkt EXPLORER<small class="flow-left">Beta</small>
+          Perfect Explorer<small class="flow-left">Beta</small>
         </h1>
       </div>
     </b-link>
