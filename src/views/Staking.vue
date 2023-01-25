@@ -2,7 +2,7 @@
   <div>
     <b-card
       v-if="pingVals && pingVals.length > 0"
-      title="// stake with PercetNode"
+      title="// stake with PerfectNode"
       class="overflow-auto"
     >
       <b-table
