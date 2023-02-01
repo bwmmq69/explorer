@@ -1,5 +1,5 @@
 {
-    "chain_name": "MARS",
+    "chain_name": "MARS-TESTNET",
     "api": ["https://mars-testnet-api.polkachu.com/","https://api.mars.nodexcapital.com/"],
     "rpc": ["https://rpc.mars.nodexcapital.com/","https://mars-testnet-rpc.polkachu.com/"],
     "snapshot_provider": "",
