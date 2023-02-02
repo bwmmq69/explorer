@@ -12,7 +12,7 @@
             variant="light-info"
             class="text-right"
           >
-            Deposit
+            {{$t('governanceProposal.proposal_status_deposit')}}
           </b-badge>
           <b-badge
             v-if="proposal.status == 2"
@@ -20,7 +20,7 @@
             variant="light-primary"
             class="text-right"
           >
-            Voting
+            {{$t('governanceProposal.proposal_status_voting')}}
           </b-badge>
           <b-badge
             v-if="proposal.status == 3"
@@ -28,7 +28,7 @@
             variant="light-success"
             class="text-right"
           >
-            Passed
+            {{$t('governanceProposal.proposal_status_passed')}}
           </b-badge>
           <b-badge
             v-if="proposal.status == 4"
@@ -36,12 +36,17 @@
             variant="light-danger"
             class="text-right"
           >
-            Rejected
+            {{$t('governanceProposal.proposal_status_rejected')}}
           </b-badge>
           {{ proposal.title }}
         </b-card-title>
       </b-card-header>
       <b-card-body>
+        <div>
+          <object-field-component
+            :tablefield="proposal.contents"
+            :small="false"
+          /></div>
         <b-table-simple
           stacked="sm"
           hover
@@ -50,38 +55,46 @@
           <tbody>
             <b-tr>
               <b-td style="text-transform: capitalize; vertical-align: top; width:200px">
-                {{ $t('proposal_proposer') }}
-              </b-td><b-td><router-link :to="`../account/${proposer.proposer}`">
-                {{ formatAddress(proposer.proposer) }}
-              </router-link> </b-td>
-            </b-tr>
-            <b-tr>
-              <b-td>
-                {{ $t('proposal_total_deposit') }}
+                {{ $t('governanceProposal.proposal_total_deposit') }}
               </b-td><b-td>{{ formatToken(proposal.total_deposit) }} </b-td>
             </b-tr>
             <b-tr>
               <b-td>
-                {{ $t('proposal_submit_time') }}
+                {{ $t('governanceProposal.proposal_submit_time') }}
               </b-td><b-td>{{ formatDate(proposal.submit_time) }}</b-td>
             </b-tr>
             <b-tr>
               <b-td>
-                {{ $t('voting_time') }}
+                {{ $t('governanceProposal.voting_time') }}
               </b-td><b-td>{{ formatDate(proposal.voting_start_time) }} - {{ formatDate(proposal.voting_end_time) }}</b-td>
+            </b-tr>
+            <b-tr v-if="proposal.metadata">
+              <b-td>
+                Metadata
+              </b-td><b-td>{{ proposal.metadata }}</b-td>
             </b-tr>
           </tbody>
         </b-table-simple>
-        <div>
-          <object-field-component
-            :tablefield="proposal.contents"
-            :small="false"
-          /></div>
         <b-table-simple v-if="proposal.type.indexOf('SoftwareUpgrade') > 0">
           <b-tr>
             <b-td class="text-center">
-              {{ $t('upgrade_time') }} {{ upgradeTime }}
+              {{ $t('governanceProposal.upgrade_time') }} {{ upgradeTime }}
               <flip-countdown :deadline="upgradeTime" />
+              <b-input-group prepend="Estimated by block time: ">
+                <b-form-select v-model="blocktime">
+                  <b-form-select-option value="7">
+                    7s
+                  </b-form-select-option>
+                  <b-form-select-option value="6">
+                    6s
+                  </b-form-select-option>
+                  <b-form-select-option value="2">
+                    2s
+                  </b-form-select-option>
+                  <b-form-select-option value="1">
+                    1s
+                  </b-form-select-option>
+                </b-form-select></b-input-group>
             </b-td>
           </b-tr>
         </b-table-simple>
@@ -91,7 +104,7 @@
           <b-button
             variant="outline-primary"
           >
-            {{ $t('btn_back_list') }}
+            {{ $t('governanceProposal.btn_back_list') }}
           </b-button>
         </router-link>
         <b-button
@@ -101,14 +114,14 @@
           class="btn float-right mg-2"
           @click="openModal('Vote')"
         >
-          {{ $t('btn_vote') }}
+          {{ $t('governanceProposal.btn_vote') }}
         </b-button>
       </b-card-footer>
     </b-card>
     <b-card no-body>
       <b-card-header>
         <b-card-title>
-          Votes
+          {{ $t('governanceProposal.proposal_votes') }}
         </b-card-title>
       </b-card-header>
       <b-card-body>
@@ -153,22 +166,22 @@
               <b-tooltip
                 :target="'vote-yes'+proposal.id"
               >
-                {{ percent(proposal.tally.yes) }}% voted Yes
+                {{ percent(proposal.tally.yes) }}% {{ $t('governanceProposal.proposal_votes_yes') }}
               </b-tooltip>
               <b-tooltip
                 :target="'vote-no'+proposal.id"
               >
-                {{ percent(proposal.tally.no) }}% voted No
+                {{ percent(proposal.tally.no) }}% {{ $t('governanceProposal.proposal_votes_no') }}
               </b-tooltip>
               <b-tooltip
                 :target="'vote-veto'+proposal.id"
               >
-                {{ percent(proposal.tally.veto) }}% voted No With Veto
+                {{ percent(proposal.tally.veto) }}% voted {{ $t('governanceProposal.proposal_votes_nwv') }}
               </b-tooltip>
               <b-tooltip
                 :target="'vote-abstain'+proposal.id"
               >
-                {{ percent(proposal.tally.abstain) }}% voted Abstain
+                {{ percent(proposal.tally.abstain) }}% {{ $t('governanceProposal.proposal_votes_abstain') }}
               </b-tooltip>
 
               <div
@@ -198,7 +211,7 @@
             @click="loadVotes()"
           >
             <feather-icon icon="PlusIcon" />
-            Load More Votes
+            {{ $t('governanceProposal.proposal_votes_load') }}
           </div>
         </div></b-card-body>
     </b-card>
@@ -208,7 +221,7 @@
     >
       <b-card-header>
         <b-card-title>
-          Deposits ({{ formatToken(proposal.total_deposit) }})
+          {{ $t('governanceProposal.proposal_deposits') }} ({{ formatToken(proposal.total_deposit) }})
         </b-card-title>
       </b-card-header>
       <b-card-body>
@@ -231,7 +244,7 @@
           <b-button
             variant="outline-primary"
           >
-            {{ $t('btn_back_list') }}
+            {{ $t('governanceProposal.btn_back_list') }}
           </b-button>
         </router-link>
         <b-button
@@ -241,7 +254,7 @@
           class="btn float-right mg-2"
           @click="openModal('GovDeposit')"
         >
-          {{ $t('btn_deposit') }}
+          {{ $t('governanceProposal.btn_deposit') }}
         </b-button>
         <b-button
           v-b-modal.operation-modal
@@ -250,7 +263,7 @@
           class="btn float-right mg-2 mr-1"
           @click="openModal('Vote')"
         >
-          {{ $t('btn_vote') }}
+          {{ $t('governanceProposal.btn_vote') }}
         </b-button>
       </b-card-footer>
     </b-card>
@@ -265,7 +278,7 @@
 <script>
 import {
   BCard, BCardBody, BCardFooter, BButton, BTable, BTableSimple, BTr, BTd, BCardTitle, BCardHeader,
-  BProgressBar, BProgress, BTooltip, BBadge,
+  BProgressBar, BProgress, BTooltip, BBadge, BFormSelect, BFormSelectOption, BInputGroup, BInputGroupPrepend,
 } from 'bootstrap-vue'
 import FlipCountdown from 'vue2-flip-countdown'
 // import fetch from 'node-fetch'
@@ -296,12 +309,17 @@ export default {
     BProgress,
     BTooltip,
     BBadge,
+    BFormSelect,
+    BFormSelectOption,
+    BInputGroup,
+    BInputGroupPrepend,
     ObjectFieldComponent,
     FlipCountdown,
     OperationModal,
   },
   data() {
     return {
+      blocktime: 6,
       tallyParam: null,
       latest: {},
       next: null,
@@ -360,7 +378,7 @@ export default {
         if (Number(this.proposal?.contents.plan.height || 0) > 0 && this.latest?.block) {
           const blocks = Number(this.proposal.contents.plan.height) - Number(this.latest.block?.header?.height || 0)
           if (blocks > 0) {
-            const endtime = dayjs().add(blocks * 6, 'second').format('YYYY-MM-DD HH:mm:ss')
+            const endtime = dayjs().add(blocks * this.blocktime, 'second').format('YYYY-MM-DD HH:mm:ss')
             return endtime
           }
         }
@@ -395,10 +413,9 @@ export default {
     if (!getCachedValidators()) {
       this.$http.getValidatorList()
     }
-
-    this.$http.getGovernanceProposer(pid).then(res => {
-      this.proposer = res
-    })
+    // this.$http.getGovernanceProposer(pid).then(res => {
+    //   this.proposer = res
+    // })
     this.$http.getGovernanceDeposits(pid).then(res => {
       this.deposits = res
     }).catch(() => {})

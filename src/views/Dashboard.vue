@@ -5,7 +5,7 @@
       :show="syncing"
     >
       <div class="alert-body">
-        <span>No new blocks have been produced since  <strong>{{ latestTime }}</strong> </span>
+        <span>{{ $t('dashboard.no_new_blocks') }}<strong>{{ latestTime }}</strong> </span>
       </div>
     </b-alert>
 
@@ -90,7 +90,7 @@
     </b-row>
     <b-card no-body>
       <b-card-header>
-        <b-card-title>Active Proposals</b-card-title>
+        <b-card-title>{{ $t('dashboard.active_props') }}</b-card-title>
       </b-card-header>
       <b-card-body>
         <b-row
@@ -192,22 +192,22 @@
                 <b-tooltip
                   :target="'vote-yes'+prop.id"
                 >
-                  {{ percent(prop.tally.yes) }}% voters voted Yes
+                  {{ percent(prop.tally.yes) }}% {{ $t('dashboard.proposal_votes_yes') }}
                 </b-tooltip>
                 <b-tooltip
                   :target="'vote-no'+prop.id"
                 >
-                  {{ percent(prop.tally.no) }}% voters voted No
+                  {{ percent(prop.tally.no) }}% {{ $t('dashboard.proposal_votes_no') }}
                 </b-tooltip>
                 <b-tooltip
                   :target="'vote-veto'+prop.id"
                 >
-                  {{ percent(prop.tally.veto) }}% voters voted No With Veto
+                  {{ percent(prop.tally.veto) }}% {{ $t('dashboard.proposal_votes_nwv') }}
                 </b-tooltip>
                 <b-tooltip
                   :target="'vote-abstain'+prop.id"
                 >
-                  {{ percent(prop.tally.abstain) }}% voters voted Abstain
+                  {{ percent(prop.tally.abstain) }}% {{ $t('dashboard.proposal_votes_abstain') }}
                 </b-tooltip>
               </b-col>
               <b-col
@@ -243,9 +243,9 @@
           </b-col>
         </b-row>
         <div v-if="proprosals2.length === 0">
-          No active proposal!
+          {{ $t('dashboard.no_active_prop') }}
           <b-link :to="`./${chain}/gov`">
-            Browse all
+            {{ $t('dashboard.browse') }}
           </b-link>
         </div>
       </b-card-body>
@@ -256,19 +256,19 @@
       class="shadow-none"
     >
       <b-card-title class="d-flex justify-content-between text-capitalize">
-        <span>{{ walletName }} Assets </span>
+        <span>{{ walletName }} {{ $t('dashboard.assets') }} </span>
         <small>
           <b-link
             v-if="address"
             :to="`./${chain}/account/${address}`"
           >
-            More
+            {{ $t('dashboard.more') }}
           </b-link>
           <b-link
             v-else
             :to="`/wallet/accounts`"
           >
-            Not connected?
+            {{ $t('dashboard.not_conn') }}
           </b-link>
         </small>
       </b-card-title>
@@ -333,6 +333,7 @@
                 <!-- size -->
                 <b-button-group
                   size="sm"
+                  class="d-none"
                 >
                   <b-button
                     v-b-modal.operation-modal
@@ -362,18 +363,41 @@
                     <feather-icon icon="LogOutIcon" />
                   </b-button>
                 </b-button-group>
+                <b-dropdown
+                  v-b-modal.operation-modal
+                  split
+                  variant="outline-primary"
+                  text="Delegate"
+                  class="mr-1"
+                  size="sm"
+                  @click="selectDelegation(data,'Delegate')"
+                >
+                  <template #button-content>
+                    {{ $t('dashboard.delegate') }}
+                  </template>
+                  <b-dropdown-item
+                    v-b-modal.operation-modal
+                    @click="selectDelegation(data,'Redelegate')"
+                  >
+                    {{ $t('dashboard.redelegate') }}
+                  </b-dropdown-item>
+                  <b-dropdown-item
+                    v-b-modal.operation-modal
+                    @click="selectDelegation(data,'Unbond')"
+                  >
+                    {{ $t('dashboard.unbond') }}
+                  </b-dropdown-item>
+                </b-dropdown>
+                <b-button
+                  v-b-modal.operation-modal
+                  variant="outline-primary"
+                  size="sm"
+                  @click="selectWithdraw()"
+                >
+                  {{ $t('dashboard.withdraw_reward') }}
+                </b-button>
               </template>
             </b-table>
-            <b-card-footer class="text-right">
-              <b-button
-                v-b-modal.operation-modal
-                variant="outline-primary"
-                @click="selectWithdraw()"
-              >
-                <feather-icon icon="AwardIcon" />
-                Widthdraw Rewards
-              </b-button>
-            </b-card-footer>
           </b-card>
         </b-col>
       </b-row>
@@ -382,7 +406,7 @@
         <b-col>
           <b-card>
             <b-card-header class="pt-0 pl-0 pr-0">
-              <b-card-title>Unbonding Tokens</b-card-title>
+              <b-card-title>{{ $t('dashboard.unbonding_token') }}</b-card-title>
             </b-card-header>
             <b-card-body class="pl-0 pr-0">
               <b-row
@@ -429,7 +453,7 @@
             @click="selectSend()"
           >
             <feather-icon icon="SendIcon" />
-            Send
+            {{ $t('dashboard.send') }}
           </b-button>
         </b-col>
         <b-col cols="6">
@@ -441,7 +465,7 @@
             <feather-icon
               icon="PlusCircleIcon"
             />
-            Receive
+            {{ $t('dashboard.receive') }}
           </b-button>
         </b-col>
       </b-row>
@@ -449,7 +473,7 @@
     <router-link to="/wallet/import">
       <b-card class="addzone text-center">
         <feather-icon icon="PlusIcon" />
-        Connect Wallet
+        {{ $t('dashboard.connect_wal') }}
       </b-card>
     </router-link>
     <operation-modal
@@ -459,6 +483,7 @@
       :proposal-id="selectedProposalId"
       :proposal-title="selectedTitle"
     />
+    <div id="txevent" />
   </div>
 </template>
 
@@ -466,6 +491,7 @@
 import {
   BRow, BCol, BAlert, BCard, BTable, BFormCheckbox, BCardHeader, BCardTitle, BMedia, BMediaAside, BMediaBody, BAvatar,
   BCardBody, BLink, BButtonGroup, BButton, BTooltip, VBModal, VBTooltip, BCardFooter, BProgress, BProgressBar, BBadge,
+  BDropdown, BDropdownItem,
 } from 'bootstrap-vue'
 import {
   formatNumber, formatTokenAmount, isToken, percent, timeIn, toDay, toDuration, tokenFormatter, getLocalAccounts,
@@ -487,6 +513,8 @@ export default {
     BButtonGroup,
     BTooltip,
     BButton,
+    BDropdown,
+    BDropdownItem,
     BRow,
     BCol,
     BAlert,
@@ -646,6 +674,22 @@ export default {
       })
     }
   },
+  mounted() {
+    const elem = document.getElementById('txevent')
+    elem.addEventListener('txcompleted', () => {
+      const key = this.$store?.state?.chains?.defaultWallet
+      if (key) {
+        const accounts = getLocalAccounts() || {}
+        const account = Object.entries(accounts)
+          .map(v => ({ wallet: v[0], address: v[1].address.find(x => x.chain === this.$store.state.chains.selected.chain_name) }))
+          .filter(v => v.address)
+          .find(x => x.wallet === key)
+        if (account) {
+          this.fetchAccount(account.address.addr)
+        }
+      }
+    })
+  },
   methods: {
     caculateTallyResult(tally) {
       if (this.tallyParam && tally && this.totalPower > 0) {
@@ -699,8 +743,6 @@ export default {
       return '-'
     },
     fetchAccount(address) {
-      const conf = this.$http.getSelectedConfig()
-      const decimal = conf.assets[0].exponent || '6'
       this.address = address
       this.$http.getBankAccountBalance(address).then(bal => {
         this.walletBalances = this.formatToken(bal)
