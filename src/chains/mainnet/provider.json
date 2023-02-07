@@ -1,20 +1,20 @@
 {
-    "chain_name": "neutron",
-    "api": ["https://rest.baryon-sentry-01.rs-testnet.polypore.xyz"],
+    "chain_name": "provider",
+    "api": ["https://rest.provider-sentry-01.rs-testnet.polypore.xyz"],
     "rpc": ["https://rpc.baryon.ntrn.info"],
     "snapshot_provider": "",
     "sdk_version": "0.46.1",
     "coin_type": "118",
     "min_tx_fee": "5000",
-    "addr_prefix": "neutron",
+    "addr_prefix": "cosmos",
     "keplr_features": ["ibc-transfer", "ibc-go", "eth-address-gen", "eth-key-sign"],
-    "logo": "/logos/neutron.jpg",
+    "logo": "/logos/cosmos.svg",
     "assets": [
       {
-        "base": "untrn",
-        "symbol": "NTRN",
+        "base": "uatom",
+        "symbol": "ATOM",
         "exponent": "6",
-        "logo": "/logos/neutron.jpg"
+        "logo": "/logos/cosmos.svg"
       }
     ]
   }
