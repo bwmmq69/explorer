@@ -1,11 +1,11 @@
 {
     "chain_name": "QUASAR",
-    "api": "https://quasar-testnet-api.polkachu.com/",
-    "rpc": "https://quasar-testnet-rpc.polkachu.com/",
+    "api": "https://api.quasar.nodexcapital.com/",
+    "rpc": "https://rpc.quasar.nodexcapital.com/",
     "snapshot_provider": "",
-    "sdk_version": "0.45.6",
+    "sdk_version": "0.46.3",
     "coin_type": "118",
-    "min_tx_fee": "800",
+    "min_tx_fee": "5000",
     "addr_prefix": "quasar",
     "logo": "/logos/quasar.png",
     "assets": [{
