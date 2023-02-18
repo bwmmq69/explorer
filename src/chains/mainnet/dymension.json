@@ -1,0 +1,19 @@
+{
+    "chain_name": "dymension",
+    "coingecko": "",
+    "api": ["https://api.dymension.nodexcapital.com/"],
+    "rpc": ["https://rpc.dymension.nodexcapital.com/"],
+    "snapshot_provider": "",
+    "sdk_version": "0.45.10",
+    "coin_type": "118",
+    "min_tx_fee": "5000",
+    "addr_prefix": "dymd",
+    "logo": "/logos/dymension.png",
+    "assets": [{
+        "base": "udym",
+        "symbol": "dymd",
+        "exponent": "6",
+        "coingecko_id": "",
+        "logo": "/logos/dymension.png"
+    }]
+}
