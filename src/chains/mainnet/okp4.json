@@ -3,9 +3,9 @@
     "api": ["https://api.okp4.nodexcapital.com/"],
     "rpc": ["https://rpc.okp4.nodexcapital.com/"],
     "snapshot_provider": "",
-    "sdk_version": "0.45.6",
+    "sdk_version": "0.46.6",
     "coin_type": "118",
-    "min_tx_fee": "800",
+    "min_tx_fee": "8000",
     "addr_prefix": "okp4",
     "logo": "/logos/okp4.svg",
     "assets": [
