@@ -1,0 +1,20 @@
+{
+    "chain_name": "8ball",
+    "api": ["httpd://api-8ball.nodine.id"],
+    "rpc": ["https://rpc-8ball.nodine.id"],
+    "snapshot_provider": "",
+    "sdk_version": "v1.0.0-rc7",
+    "coin_type": "118",
+    "min_tx_fee": "4000",
+    "addr_prefix": "8ball",
+    "logo": "/logos/8ball.png",
+    "assets": [
+      {
+        "base": "ubl",
+        "symbol": "EBL",
+        "exponent": "6",
+        "coingecko_id": "",
+        "logo": "/logos/8ball.png"
+      }
+    ]
+  }
