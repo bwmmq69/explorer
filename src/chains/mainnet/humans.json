@@ -1,7 +1,7 @@
 {
     "chain_name": "humans",
-    "api": ["https://api-testnet.humans.sxlzptprjkt.xyz", "https://api-testnet.humans.zone"],
-    "rpc": ["https://rpc-testnet.humans.sxlzptprjkt.xyz", "https://rpc-testnet.humans.zone"],
+    "api": ["https://api-humans.nodine.id", "https://api-testnet.humans.zone"],
+    "rpc": ["https://rpc-humans.nodine.id/", "https://rpc-testnet.humans.zone"],
     "snapshot_provider": "",
     "sdk_version": "v1.0.0",
     "coin_type": "118",
