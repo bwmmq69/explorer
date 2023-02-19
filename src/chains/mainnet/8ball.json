@@ -10,7 +10,7 @@
     "logo": "/logos/8ball.png",
     "assets": [
       {
-        "base": "ubl",
+        "base": "uebl",
         "symbol": "EBL",
         "exponent": "6",
         "coingecko_id": "8ball",
