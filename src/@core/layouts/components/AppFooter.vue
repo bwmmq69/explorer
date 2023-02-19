@@ -1,12 +1,12 @@
 <template>
   <p class="clearfix mb-0">
     <span class="float-md-left d-none d-md-block d-md-inline-block mt-25">
-      Copyright © 2023 NodeX Capital source explorer by
+      Copyright © 2023 Nodine source explorer by
       <b-link
         class="ml-25 font-weight-bolder"
         href="#"
         target="_blank"
-      >https://ping.pub</b-link>
+      >https://explorer.co.id/b-link>
     </span>
 
     <router-link
