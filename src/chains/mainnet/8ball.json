@@ -1,6 +1,6 @@
 {
     "chain_name": "8ball",
-    "api": ["httpd://api-8ball.nodine.id"],
+    "api": ["https://api-8ball.nodine.id"],
     "rpc": ["https://rpc-8ball.nodine.id"],
     "snapshot_provider": "",
     "sdk_version": "0.46.7",
@@ -13,7 +13,7 @@
         "base": "ubl",
         "symbol": "EBL",
         "exponent": "6",
-        "coingecko_id": "",
+        "coingecko_id": "8ball",
         "logo": "/logos/8ball.png"
       }
     ]
