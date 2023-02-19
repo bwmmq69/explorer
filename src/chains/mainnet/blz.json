@@ -4,7 +4,7 @@
     "rpc": ["https://rpc-curium.nodine.id"],
     "snapshot_provider": "",
     "sdk_version": "0.38.3",
-    "coin_type": "60",
+    "coin_type": "118",
     "min_tx_fee": "2000",
     "addr_prefix": "blz",
     "logo": "/logos/blz.jpg",
